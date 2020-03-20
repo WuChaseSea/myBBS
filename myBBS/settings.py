@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'boards',
 ]
 
 MIDDLEWARE = [
@@ -76,7 +78,12 @@ WSGI_APPLICATION = 'myBBS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'bbs',
+        'USER': 'bbs_admin',
+        'PASSWORD': '000821',
+        'HOST': '%',
+        'POrt': '3308',
     }
 }
 
