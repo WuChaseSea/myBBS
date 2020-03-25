@@ -2,17 +2,19 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>{% block title %}Django Boards{% endblock %}</title>
+        <title>{% block title %}版块{% endblock %}</title>
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/app.css' %}">
     </head>
     <body>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'home' %}">Django Boards</a>
+                <a class="navbar-brand" href="{% url 'home' %}">论坛界面</a>
             </div>
         </nav>
-        
+
         <div class="container">
             <ol class="breadcrumb my-4">
                 {% block breadcrumb %}
