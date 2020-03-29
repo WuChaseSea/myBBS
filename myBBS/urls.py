@@ -47,4 +47,11 @@ urlpatterns = [
         auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'),
         name='password_reset_complete'
     ),
+    url('^settings/password/$', auth_views.PasswordChangeView.as_view(template_name='password_change.html'), name='password_change'),
+    url('settings/password/done/$',
+        auth_views.PasswordChangeDoneView.as_view(
+                    template_name='password_change_done.html'
+        ), name='password_change_done'),
+    url('^boards/(?P<pk>\d+)/topics/(?P<topic_pk>\d+)/$',
+        views.topic_posts, name='topic_posts')
 ]
