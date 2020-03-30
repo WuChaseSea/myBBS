@@ -53,5 +53,7 @@ urlpatterns = [
                     template_name='password_change_done.html'
         ), name='password_change_done'),
     url('^boards/(?P<pk>\d+)/topics/(?P<topic_pk>\d+)/$',
-        views.topic_posts, name='topic_posts')
+        views.topic_posts, name='topic_posts'),
+    url('^boards/(?P<pk>\d+)/topics/(?P<topic_pk>\d+)/reply/$',
+         views.reply_topic, name='reply_topic'),
 ]
