@@ -24,9 +24,12 @@ from accounts import views as accounts_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('^$', views.home, name='home'),
-    url('^boards/$', views.home, name='home'),
-    url('^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
+    # url('^$', views.home, name='home'),
+    url('^$', views.BoardListView.as_view(), name='home'),
+    url('^boards/$', views.BoardListView.as_view(), name='home'),
+    # url('^boards/$', views.home, name='home'),
+    # url('^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
+    url('^boards/(?P<pk>\d+)/$', views.TopicListView.as_view(), name='board_topics'),
     url('^boards/(?P<pk>\d+)/new/$', views.new_topic, name='new_topic'),
     url('^signup/$', accounts_views.signup, name='signup'),
     url('^logout/$', auth_views.LogoutView.as_view(), name='logout'),
@@ -56,4 +59,5 @@ urlpatterns = [
         views.topic_posts, name='topic_posts'),
     url('^boards/(?P<pk>\d+)/topics/(?P<topic_pk>\d+)/reply/$',
          views.reply_topic, name='reply_topic'),
+    url('^boards/(?P<pk>\d+)/topics/(?P<topic_pk>\d+)/posts/(?P<post_pk>\d+)/edit/$', views.PostUpdateView.as_view(), name='edit_post'),
 ]

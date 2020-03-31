@@ -34,7 +34,9 @@
                 <div class="row">
                     <div class="col-2">
                         <img src="{% static 'img/man.svg' %}" alt="{{ post.created_by.username }}" class="w-100">
-                        <small>Posts: {{ post.created_by.posts.count }}</small>
+                        <div class="card-body">
+                            <small>Posts: {{ post.created_by.posts.count }}</small>
+                        </div>
                     </div>
                     <div class="col-10">
                         <div class="row mb-3">
@@ -48,7 +50,7 @@
                         {{ post.message }}
                         {% if post.created_by == user %}
                         <div class="mt-3">
-                            <a href="#" class="btn btn-primary btn-sm" role="button">Edit</a>
+                            <a href="{% url 'edit_post' post.topic.board.pk post.topic.pk post.pk %}" class="btn btn-primary btn-sm" role="button">Edit</a>
                         </div>
                         {% endif %}
                     </div>
