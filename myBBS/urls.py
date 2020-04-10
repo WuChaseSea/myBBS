@@ -25,8 +25,8 @@ from accounts import views as accounts_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     # url('^$', views.home, name='home'),
-    url('^$', views.BoardListView.as_view(), name='home'),
-    url('^boards/$', views.BoardListView.as_view(), name='home'),
+    url('^$', views.home, name='home'),
+    url('^boards/$', views.BoardListView.as_view(), name='boards'),
     # url('^boards/$', views.home, name='home'),
     # url('^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
     url('^boards/(?P<pk>\d+)/$', views.TopicListView.as_view(), name='board_topics'),

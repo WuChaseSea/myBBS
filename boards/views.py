@@ -22,10 +22,16 @@ from .forms import NewTopicForm, PostForm
 # def home(request):
 #     boards = Board.objects.all()
 #     return render(request, 'home.html', {'boards': boards})
+
+def home(request):
+    boards = Board.objects.all()
+    topics = Topic.objects.all()
+    return render(request, 'home.html', {'boards': boards, 'topics': topics})
+
 class BoardListView(ListView):
     model = Board
     context_object_name = 'boards'
-    template_name = 'home.html'
+    template_name = 'boards.html'
 
 # def board_topics(request, pk):
 #     # try:
